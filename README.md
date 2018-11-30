@@ -197,7 +197,7 @@ import React, { Component } from 'react';
 // 父组件
 import React, {Component} from 'react';
 import ChildComponent from 'ChildComponent';
-class ParentComponent extend Component {
+class ParentComponent extends Component {
     state = {
         message: '我来自父组件'
     }
@@ -210,7 +210,7 @@ class ParentComponent extend Component {
 
 // 子组件
 import React, {Component} from 'react';
-class ChildComponent from Component {
+class ChildComponent extends Component {
     render() {
         return (
             <h3>来自父组件的消息说：{this.props.msg}</h3>
@@ -223,7 +223,7 @@ class ChildComponent from Component {
 ```js
 // 子组件
 import React, {Component} from 'react';
-class ChildComponent from Component {
+class ChildComponent extends Component {
     state ={
         message: '我是来自子组件的消息'
     }
@@ -236,7 +236,7 @@ class ChildComponent from Component {
 // 父组件
 import React, {Component} from 'react';
 import ChildComponent from 'ChildComponent';
-class ParentComponent extend Component {
+class ParentComponent extends Component {
     state = {
         message: ''
     }
