@@ -227,33 +227,40 @@ class ChildComponent extends Component {
     state ={
         message: '我是来自子组件的消息'
     }
+    toParent(){
+        this.props.toParent(this.state.message);
+    }
     render() {
         return (
-            <h5>来自父组件的消息说：{this.props.message}</h5>
+            <h5 onClick={this.toParent.bind(this)}>去给父组件说</h5>
         )
     }
 }
+export default ChildComponent;
+
 // 父组件
 import React, {Component} from 'react';
-import ChildComponent from 'ChildComponent';
+import ChildComponent from './Modals';
 class ParentComponent extends Component {
     state = {
         message: ''
     }
-    handleFromChild(msg){
+
+    handleFromChild(msg) {
         this.setState({
-             message: msg
+            message: msg
         })
     }
-    render(){
+    render() {
         return (
-            <ChildComponent toParent={this.handleFromChild.bind(this)}></ChildComponent>
-            <h3>来自子组件的消息是：{this.state.message}</h3>
+            <div>
+                <h3>来自子组件的消息是：{this.state.message}</h3>
+                <ChildComponent toParent={this.handleFromChild.bind(this)}></ChildComponent>
+            </div>
         )
     }
 }
-
-
+export  default ParentComponent;
 ```
 
 2. 子组件上调用父组件方法
